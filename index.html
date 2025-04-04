@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPOC Portal - UK & Ireland</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-blue-900 text-white p-4 shadow">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">SPOC: UK & Ireland</h1>
+      <select id="countrySelect" class="text-black px-2 py-1 rounded">
+        <option value="uk">United Kingdom</option>
+        <option value="ireland">Ireland</option>
+        <option value="both">Both</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6 space-y-10">
+    <!-- Introduction -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Introduction</h2>
+      <p>This SPOC (Single Point of Contact) document serves as a comprehensive knowledge hub for UK and Ireland accounting operations. It covers payroll, compliance, taxation, and other crucial business obligations, with actionable templates and deadlines for reference.</p>
+    </section>
+
+    <!-- UK Section -->
+    <section id="ukSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4 text-blue-800">United Kingdom</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-semibold">1. Payroll Process</h3>
+          <ul class="list-disc list-inside">
+            <li>Monthly Payroll Cycle: Employee inputs cut-off by 20th, review, and finalization by 25th.</li>
+            <li>Submission to HMRC (FPS) by or before payday.</li>
+            <li>Employer Payment Summary (EPS) if required – before the 19th of the following month.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">2. Tax Payments</h3>
+          <ul class="list-disc list-inside">
+            <li>PAYE/NIC due by 22nd of the following month.</li>
+            <li>Corporation Tax – 9 months and 1 day after end of accounting period.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">3. Statutory Filings</h3>
+          <ul class="list-disc list-inside">
+            <li>Confirmation Statement: Annually, usually due 14 days after the anniversary of incorporation.</li>
+            <li>Accounts Filing: Within 9 months of year-end to Companies House.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">4. Downloads</h3>
+          <ul class="list-disc list-inside">
+            <li><a href="#" class="text-blue-600 underline">UK Payroll Template</a></li>
+            <li><a href="#" class="text-blue-600 underline">P60 Format</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ireland Section -->
+    <section id="irelandSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4 text-green-800">Ireland</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-semibold">1. Payroll Process</h3>
+          <ul class="list-disc list-inside">
+            <li>Payroll deadline: Inputs by 20th, file to Revenue before payday.</li>
+            <li>Submission via ROS using Payroll Software or manual file.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">2. VAT Filing</h3>
+          <ul class="list-disc list-inside">
+            <li>Bi-monthly VAT return and payment due by 19th of the month following the period.</li>
+            <li>ROS submission via VAT3 Form.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">3. Corporation Tax</h3>
+          <ul class="list-disc list-inside">
+            <li>Return and payment due 9 months after year-end (Form CT1).</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">4. Downloads</h3>
+          <ul class="list-disc list-inside">
+            <li><a href="#" class="text-green-600 underline">Ireland VAT Template</a></li>
+            <li><a href="#" class="text-green-600 underline">Ireland Payslip Format</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Both Countries Section -->
+    <section id="bothSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4 text-purple-800">Combined Overview</h2>
+      <p>This section will provide joint calendar views and unified document access. Future expansion includes deadline visualizations and automatic email reminders.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-center p-4 mt-10">
+    <p>&copy; 2025 SPOC Portal. Free resource for accountants.</p>
+  </footer>
+
+  <!-- JavaScript to handle country selection -->
+  <script>
+    const select = document.getElementById('countrySelect');
+    const uk = document.getElementById('ukSection');
+    const ireland = document.getElementById('irelandSection');
+    const both = document.getElementById('bothSection');
+
+    function updateView() {
+      const value = select.value;
+      uk.style.display = (value === 'uk' || value === 'both') ? 'block' : 'none';
+      ireland.style.display = (value === 'ireland' || value === 'both') ? 'block' : 'none';
+      both.style.display = (value === 'both') ? 'block' : 'none';
+    }
+
+    select.addEventListener('change', updateView);
+    window.onload = updateView;
+  </script>
+</body>
+</html>
